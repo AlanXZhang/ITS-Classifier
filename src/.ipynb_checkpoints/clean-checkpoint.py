@@ -3,22 +3,6 @@ import numpy as np
 import argparse
 import os
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description = 'Processes the raw data for use'),
-    parser.add_argument("filepath", default = "../data/cases_f.csv")
-    parser.add_argument("output_dir", default="../data/")
-    parser.add_argument("-s, --split_df", action="store_false", choices=[True,  False])
-    args = parser.parse_args()
-    filepath = args.filepath
-    output_dir = args.outout_dir
-    split_df = args.split_df
-    df = clean_csv(filepath)
-    filename = filepath.split("/")[-1].split(".")[0]
-    clean_filepath = os.path.join(output_dir, f"{filename}_cleaned.csv")
-    df.to_csv(f"{cleaned}.csv")
-    if split_df:
-        org_split(df, output_dir)
-
 def clean_csv(path="../data/cases_f.csv"):
     """
     Reads the CSV and return one without missing values and organizations that
@@ -109,3 +93,20 @@ def org_split(df, output_dir = "../data/"):
         output_path = os.path.join(output_dir, filename)
         org_grps.get_group(org).to_csv(output_path)
     return 
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description = 'Processes the raw data for use')
+    parser.add_argument("-f", "--filepath", default = "../data/cases_f.csv")
+    parser.add_argument("-o", "--output_dir", default="../data/")
+    parser.add_argument("-s", "--split_df", action="store_false", default=False)
+    args = parser.parse_args()
+    filepath = args.filepath
+    output_dir = args.output_dir
+    split_df = args.split_df
+#     print(args.filepath, args.output_dir, args.split_df)
+    df = clean_csv(filepath)
+    filename = filepath.split("/")[-1].split(".")[0]
+    clean_filepath = os.path.join(output_dir, f"{filename}_cleaned.csv")
+    df.to_csv(clean_filepath)
+    if split_df:
+        org_split(df, output_dir)
