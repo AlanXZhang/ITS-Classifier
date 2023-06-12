@@ -2,4 +2,4 @@ github_PAT.txt
 data/
 __pycache__
 notebooks/.ipynb_checkpoints
-notebooks/saved_model
+notebooks/saved_model/
