@@ -4,17 +4,18 @@
 1. Open a terminal from the main folder and type 'cd src'
 2. Type in 'python run.py' to launch the model and predict the service offering along with their predicted probability
 3. Compare the results generated in your terminal or the 'results.csv' in the main_dir/outputs folder with the 'sample_results.csv'
+4. Run 'python run.py <filepath to your description .txt>'
 
-Note: If you want to run the model on a list of description, store them as a file and each description should be on a new line
-E.g.
-My account is compromised, I need to change my password
-Wifi at Sixth college is not working. All of my friends are reporting a problem
-...
-My VPN is not working. It is stuck on trying to connect when I type in my password
+Note: If you want to run the model on a list of description, store them as a file and each description should be on a new line <br>
+E.g. <br>
+My account is compromised, I need to change my password <br>
+Wifi at Sixth college is not working. All of my friends are reporting a problem <br>
+...<br>
+My VPN is not working. It is stuck on trying to connect when I type in my password<br>
 
 
-# Usage
-1. reate a folder named data and download the raw data file there
+# To clean the raw data
+1. Create a folder named data and download the raw data file there
 2. From there, open a terminal of your choice and run clean.py <br>
 You have a few options here. "clean.py filepath output_dir split_df"
 - filepath is a string that leads to the data file
