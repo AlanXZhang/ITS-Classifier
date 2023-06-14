@@ -1,0 +1,1 @@
+{"model_path": "saved_model/best_top_25_bert_small", "service_encoder_path": "service_to_idx.json", "service_decoder_path": "idx_to_service.json"}
