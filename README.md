@@ -23,3 +23,6 @@ You have a few options here. "clean.py filepath output_dir split_df"
 - split_df specifies whether you want to split the data by the organization it falls under
     - split_df will generate new csvs files in the output_dir specified
 The output of this function will generate a new csv named "(old_csv)_cleaned.csv"
+
+# Developer section
+For developers, read the todo.txt
