@@ -38,6 +38,9 @@ if __name__ == "__main__":
     
     if target_filepath is None:
         target = dummy_data
+    else:
+        with open(target_filepath, 'r') as f:
+            target = f.readlines()
     
     with open('config.json', 'r') as config:
         params = json.load(config)
