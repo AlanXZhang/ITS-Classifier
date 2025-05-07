@@ -1,3 +1,5 @@
+import re
+import string
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 lemmatizer = WordNetLemmatizer()

@@ -28,21 +28,21 @@ def read_csv(path="../data/cases_f.csv", q=True):
     Returns a valid DataFrame if this function is succesful, 
     empty dataframe otherwise
     """
-    try:
-        df = pd.read_csv(
-            path,
-            encoding="utf-8",
-            encoding_errors="ignore",
-            engine="c",
-            on_bad_lines="warn",
-        )
-        print("Successfuly loaded data into a DataFrame")
-    except:
-        df = None
-        print("Read function failed. Please make sure that the filepath \
-        is correct.")
-    finally:
-        return df
+# try:
+    df = pd.read_csv(
+        path,
+        encoding="utf-8",
+        encoding_errors="ignore",
+        engine="c",
+        on_bad_lines="warn",
+    )
+    print("Successfuly loaded data into a DataFrame")
+# except Exception:
+#     df = None
+#     print("Read function failed. Please make sure that the filepath \
+#     is correct.")
+# finally:
+    return df
     
 def drop_na(df):
     """
@@ -103,10 +103,10 @@ if __name__ == "__main__":
     filepath = args.filepath
     output_dir = args.output_dir
     split_df = args.split_df
-#     print(args.filepath, args.output_dir, args.split_df)
+    print(args.filepath, args.output_dir, args.split_df)
     df = clean_csv(filepath)
     filename = filepath.split("/")[-1].split(".")[0]
     clean_filepath = os.path.join(output_dir, f"{filename}_cleaned.csv")
-    df.to_csv(clean_filepath)
+    df.to_csv(clean_filepath, index=False)
     if split_df:
         org_split(df, output_dir)
